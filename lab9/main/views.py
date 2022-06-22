@@ -7,7 +7,7 @@ from django.db.models import Count
 
 # Create your views here.
 def index(request):
-    return HttpResponse("")
+    return HttpResponse("Hello world!")
 
 
 def crud(request):
@@ -17,10 +17,13 @@ def crud(request):
 def insert(request):
     if request.method == 'POST':
         form = UserEditForm(request.POST)
+        form.non_field_errors()
+        field_errors = [(field.label, field.errors) for field in form]
+        print(field_errors)
         if form.is_valid():
             form.save()
-
-    form = UserEditForm()
+    else:
+        form = UserEditForm()
     context = {
         'form': form
     }

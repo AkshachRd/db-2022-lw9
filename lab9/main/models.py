@@ -31,3 +31,4 @@ class Sale(models.Model):
     price = models.DecimalField(default=25.00, max_digits=10, decimal_places=2,
                                 null=True, blank=True)
     id_client = models.ForeignKey(Client, on_delete=models.CASCADE)
+

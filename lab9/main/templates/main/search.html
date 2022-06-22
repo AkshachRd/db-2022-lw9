@@ -6,31 +6,33 @@
     <title>Search user</title>
 </head>
 <body>
-    <h1>Найти пользователя</h1>
-    <form method="get">
-        {% csrf_token %}
-        {{ form.name }}
-        <button type="submit" class="btn btn-success">Найти</button>
-    </form>
-    {% if users %}
-        <table class="table table-striped">
-            <tr>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Phone</td>
-                <td>Birthday</td>
-            </tr>
-            {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.phone }}</td>
-                <td>{{ user.birthday }}</td>
-            </tr>
-        {% endfor %}
-        </table>
-    {% else %}
-        <p>Не найдено ни одного пользователя</p>
-    {% endif %}
+    <div class="container">
+        <h1>Найти пользователя</h1>
+        <form method="get">
+            {% csrf_token %}
+            {{ form.name }}
+            <button type="submit" class="btn btn-success">Найти</button>
+        </form>
+        {% if users %}
+            <table class="table table-striped">
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Phone</td>
+                    <td>Birthday</td>
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.birthday }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        {% else %}
+            <p>Не найдено ни одного пользователя</p>
+        {% endif %}
+    </div>
 </body>
 </html>
